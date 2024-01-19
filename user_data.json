@@ -1,0 +1,68 @@
+{
+  "Rahul@gmail.com": {
+    "password": "Rahul@12"
+  },
+  "Ansh@gmail.com": {
+    "password": "RAhy12",
+    "name": "Ansh",
+    "Number": "1234567890",
+    "email": "Ansh@gmail.com"
+  },
+  "Shivam@gmail.com": {
+    "password": "shican@12",
+    "name": "Rahul",
+    "phoneNumber": "1234567890",
+    "email": "Shivam@gmail.com"
+  },
+  "pre@c.com": {
+    "password": "prem",
+    "name": "prem",
+    "phoneNumber": "prem",
+    "email": "pre@c.com"
+  },
+  "riku@gmail.com": {
+    "password": "Rahul@gmaul.com",
+    "name": "riku",
+    "phoneNumber": "7055648508",
+    "email": "riku@gmail.com"
+  },
+  "Rohan@gmail.com": {
+    "password": "rohan@12",
+    "name": "Rohan",
+    "phoneNumber": "1254378692",
+    "email": "Rohan@gmail.com"
+  },
+  "SK@gmail.com": {
+    "password": "RAhul@12",
+    "name": "Sjkumar",
+    "phoneNumber": "1234568765",
+    "email": "SK@gmail.com"
+  },
+  "AK@gmail.com": {
+    "password": "RAhul@12",
+    "name": "KAkumar",
+    "phoneNumber": "0987456712"
+  },
+  "Shivambh@gmail.com": {
+    "password": "RAhul@12",
+    "name": "Shivam",
+    "phoneNumber": "1123459876",
+    "email": "Shivambh@gmail.com"
+  },
+  "sohil@gmail.com": {
+    "password": "shil@12",
+    "name": "Sohil",
+    "phoneNumber": "98712365412"
+  },
+  "kb@gmail.com": {
+    "password": "Rahul@12",
+    "name": "Rahul",
+    "phoneNumber": "9871236745",
+    "email": "kb@gmail.com"
+  },
+  "ROhan@gmail.com": {
+    "password": "ROhan@12",
+    "name": "ROHAN",
+    "email": "ROhan@gmail.com"
+  }
+}

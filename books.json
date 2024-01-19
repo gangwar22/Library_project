@@ -1,0 +1,78 @@
+{
+  "101": {
+    "books_title": "one day life will change",
+    "quantity": 17,
+    "price": 100,
+    "status": "Available"
+  },
+  "102": {
+    "books_title": "swami dayanand ",
+    "quantity": 14,
+    "price": 100,
+    "status": "Already Issued"
+  },
+  "103": {
+    "books_title": "indra gandhi",
+    "quantity": 8,
+    "price": 100,
+    "status": "Available"
+  },
+  "104": {
+    "books_title": "Advanture of the earth",
+    "quantity": 14,
+    "price": 100,
+    "status": "Available"
+  },
+  "105": {
+    "books_title": "Dr,Bheem Rao ambedkar",
+    "quantity": 30,
+    "price": 100,
+    "status": "Already Issued"
+  },
+  "106": {
+    "books_title": "Baklol",
+    "quantity": 7,
+    "price": 250,
+    "status": "Available"
+  },
+  "107": {
+    "books_title": "physcology",
+    "quantity": 11,
+    "price": 250,
+   "status": "Available"
+  },
+  "108": {
+    "books_title": "Humanity",
+    "quantity": 23,
+    "price": 50,
+    "status": "Already Issued"
+
+  },
+  "109": {
+    "books_title": "physcology",
+    "quantity": 28,
+    "price": 100,
+    "status": "Available"
+  },
+  "110": {
+    "books_title": "JJK",
+    "quantity": 10,
+    "price": 500,
+    "status": "Available",
+    "rent_amount": 500
+  },
+  "111": {
+    "books_title": "jungle book",
+    "quantity": 10,
+    "price": 150,
+    "total_price": 1500,
+    "status": "Available"
+  },
+  "112": {
+    "books_title": "RICH DAD POOR DAD",
+    "quantity": 20,
+    "price": 200,
+    "total_price": 4000,
+    "status": "Available"
+  }
+}
