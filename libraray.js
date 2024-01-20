@@ -7,6 +7,7 @@ class LibraryManagementSystem {
       "admin": "admin123"
     };
     this.books_dict = {};
+    this.currentUserType = '';
   }
   authenticate() {
     const validUsername = "admin";
@@ -149,7 +150,7 @@ class LibraryManagementSystem {
 
       if (userData[email] && userData[email].password === password) {
         console.log('Login successful!');
-        this.loggedInUser = email; // Store the logged-in user's email
+        this.loggedInUser = email; 
         loginSuccessful = true;
       } else {
         console.log('Login failed. Please check your email and password.');
@@ -176,7 +177,6 @@ class LibraryManagementSystem {
       if (this.books_dict[books_id]["quantity"] <= 0) {
         console.log("Sorry, this book is out of stock. Cannot issue.");
       } else {
-        // Check if the quantity is greater than zero before issuing the book
         if (this.books_dict[books_id]["quantity"] > 0) {
           this.books_dict[books_id]["lender_name"] = currentUserEmail;
           this.books_dict[books_id]["lend_date"] = current_date;
@@ -343,32 +343,181 @@ class LibraryManagementSystem {
     console.table(booksArray);
     console.log("----------------------------------------------------------");
   }
+  mainMenu() {
+    let exitRequested = false;
 
+    while (!exitRequested) {
+      console.log("Are you an admin or customer?\n1. Admin\n2. Customer\n3. Exit");
+      let option = readlineSync.question("Enter the option: ");
+
+      switch (option) {
+        case "1":
+          this.adminMenu();
+          break;
+        case "2":
+          this.customerMenu();
+          break;
+        case "3":
+          console.log("Exiting...");
+          exitRequested = true;
+          break;
+        default:
+          console.log("Invalid option. Please enter 1, 2, or 3.");
+      }
+    }
+  }
 
   runLibraryManagementSystem(list_of_books, library_name) {
-    console.log(`\n----------Welcome To Library Management System---------\n`);
-    console.log(`Press A to Add Books`);
-    console.log(`Press D to Display Books`);
-    console.log(`Press Q to Quit`);
-    let key_press = readlineSync.question("Press Key : ").toUpperCase();
+    let goBack = false;
 
-    switch (key_press) {
-      case "A":
-        console.log("\nCurrent Selection : ADD BOOK\n");
-        this.addBooks();
-        this.runLibraryManagementSystem(list_of_books, library_name);
-        break;
-      case "D":
-        console.log("\nCurrent Selection : DISPLAY BOOKS\n");
-        this.displayBooks();
-        this.runLibraryManagementSystem(list_of_books, library_name);
-        break;
-      case "Q":
-        this.writeBooksData();
-        break;
-      default:
-        console.log("Invalid selection. Please try again.");
-        this.runLibraryManagementSystem(list_of_books, library_name);
+    while (!goBack) {
+      console.log(`\n----------Welcome To Library Management System---------\n`);
+      console.log(`Press A to Add Books`);
+      console.log(`Press D to Display Books`);
+      console.log(`Press Q to Quit`);
+      console.log(`Press B to Go Back`);
+
+      let key_press = readlineSync.question("Press Key : ").toUpperCase();
+
+      switch (key_press) {
+        case "A":
+          console.log("\nCurrent Selection : ADD BOOK\n");
+          this.addBooks();
+          break;
+        case "D":
+          console.log("\nCurrent Selection : DISPLAY BOOKS\n");
+          this.displayBooks();
+          break;
+        case "Q":
+          this.writeBooksData();
+          console.log("Exiting Library Management System.");
+          process.exit();
+          break;
+        case "B":
+          console.log("Going back to the main menu...");
+          goBack = true;
+          break;
+        default:
+          console.log("Invalid selection. Please try again.");
+      }
+    }
+  }
+
+  adminMenu() {
+    console.log("Admin functionality (to be implemented)");
+    if (!this.authenticate()) {
+      return;
+    }
+    
+    this.runLibraryManagementSystem("list_of_books.txt", "library_name");
+  }
+
+
+
+  goBack() {
+    if (this.menuStack.length > 0) {
+      const previousMenu = this.menuStack.pop();
+      console.log(`Going back to ${previousMenu}...`);
+      this[previousMenu]();
+    } else {
+      console.log("Cannot go back further. Already at the main menu.");
+    }
+  }
+
+  mainMenu() {
+    let exitRequested = false;
+
+    while (!exitRequested) {
+      console.log("Are you an admin or customer?\n1. Admin\n2. Customer\n3. Exit");
+      let option = readlineSync.question("Enter the option: ");
+
+      switch (option) {
+        case "1":
+          this.currentUserType = 'admin';  // Set the currentUserType
+          this.adminMenu();
+          break;
+        case "2":
+          this.currentUserType = 'customer';  // Set the currentUserType
+          this.customerMenu();
+          break;
+        case "3":
+          console.log("Exiting...");
+          exitRequested = true;
+          break;
+        default:
+          console.log("Invalid option. Please enter 1, 2, or 3.");
+      }
+    }
+  }
+
+  customerMenu() {
+    let loggedIn = false;
+
+    console.log("Choose the option...\n1. Sign up\n2. Login\n3. Go back");
+
+    let option;
+    do {
+      option = readlineSync.question('Enter the option you want to choose: ');
+
+      switch (option) {
+        case "1":
+          this.signup();
+          loggedIn = true;
+          break;
+        case "2":
+          this.login();
+          loggedIn = true;
+          break;
+        case "3":
+          console.log("Going back...");
+          this.currentUserType = '';  
+          return;
+        default:
+          console.log("Invalid option. Please try again.");
+      }
+    } while (!loggedIn);
+
+    let key_press;
+
+    while (!(key_press === "Q")) {
+      console.log(`\n----------Welcome To Library Management System---------\n`);
+      console.log(`Press I to Rent Books`);
+      console.log(`Press D to Display Books`);
+      console.log(`Press R to Return Book`);
+      console.log(`Press B to Go Back`);
+
+      key_press = readlineSync.question("Press Key: ").toUpperCase();
+
+      // Push the current menu to the stack
+      this.menuStack.push("customerMenu");
+
+      switch (key_press) {
+        case "I":
+          console.log("\nCurrent Selection: Rent Book\n");
+          this.issueBooks();
+          break;
+        case "A":
+          console.log("\nCurrent Selection: Add Book\n");
+          this.addBooks();
+          break;
+        case "D":
+          console.log("\nCurrent Selection: Display Books\n");
+          this.displayBooks();
+          break;
+        case "R":
+          console.log("\nCurrent Selection: Return Book\n");
+          this.returnBooks();
+          break;
+        case "Q":
+          this.writeBooksData();
+          break;
+        case "B":
+          // Call the goBack function
+          this.goBack();
+          break;
+        default:
+          console.log("Invalid selection. Please try again.");
+      }
     }
   }
 }
@@ -377,7 +526,9 @@ const librarySystem = new LibraryManagementSystem();
 
 if (require.main === module) {
   try {
+    
     librarySystem.initializeBooks("/home/ng/Desktop/libraryproject/list_of_books.txt");
+    librarySystem.mainMenu();
   } catch (e) {
     console.log("Something went wrong. Please check. !!!");
   }

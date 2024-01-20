@@ -64,5 +64,25 @@
     "password": "ROhan@12",
     "name": "ROHAN",
     "email": "ROhan@gmail.com"
+  },
+  "rahu@gmail.com": {
+    "password": "rahul212",
+    "name": "Rahul",
+    "email": "rahu@gmail.com"
+  },
+  "p@g.com": {
+    "password": "prem",
+    "name": "Prem",
+    "email": "p@g.com"
+  },
+  "rahul@gmail.com": {
+    "password": "Rahul#21",
+    "name": "Rahul",
+    "email": "rahul@gmail.com"
+  },
+  "mn@gmail.com": {
+    "password": "paras",
+    "name": "Rahul",
+    "email": "mn@gmail.com"
   }
 }

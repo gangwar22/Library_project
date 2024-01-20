@@ -9,7 +9,11 @@
     "books_title": "swami dayanand ",
     "quantity": 14,
     "price": 100,
-    "status": "Already Issued"
+    "status": "Available",
+    "lender_name": "",
+    "lend_date": "1/20/2024, 9:47:14 PM",
+    "return_date": "1/20/2024, 9:47:51 PM",
+    "rent_amount": 200
   },
   "103": {
     "books_title": "indra gandhi",
@@ -21,7 +25,11 @@
     "books_title": "Advanture of the earth",
     "quantity": 14,
     "price": 100,
-    "status": "Available"
+    "status": "Available",
+    "lender_name": "",
+    "lend_date": "1/20/2024, 9:52:12 PM",
+    "return_date": "1/20/2024, 9:52:21 PM",
+    "rent_amount": 100
   },
   "105": {
     "books_title": "Dr,Bheem Rao ambedkar",
@@ -39,14 +47,13 @@
     "books_title": "physcology",
     "quantity": 11,
     "price": 250,
-   "status": "Available"
+    "status": "Available"
   },
   "108": {
     "books_title": "Humanity",
     "quantity": 23,
     "price": 50,
     "status": "Already Issued"
-
   },
   "109": {
     "books_title": "physcology",
@@ -73,6 +80,13 @@
     "quantity": 20,
     "price": 200,
     "total_price": 4000,
+    "status": "Available"
+  },
+  "113": {
+    "books_title": "BBk",
+    "quantity": 10,
+    "price": 150,
+    "total_price": 1500,
     "status": "Available"
   }
 }
